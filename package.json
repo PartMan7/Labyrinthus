@@ -1,0 +1,17 @@
+{
+	"name": "Labyrinthus",
+	"version": "1.0.0",
+	"description": "The Labyrinthus game",
+	"main": "main.js",
+	"scripts": {
+		"lint": "eslint . --config .eslintrc.json *.js",
+		"start": "electron .",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "PartMan7",
+	"license": "ISC",
+	"devDependencies": {
+		"electron": "^13.1.7",
+		"eslint": "^7.30.0"
+	}
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Labyrinthus</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<script src="maze.js" charset="utf-8"></script>
+	<script src="libs/jquery.js"></script>
+	<script src="libs/babylon.js"></script>
+	<script src="libs/babylonjs.loaders.min.js"></script>
+	<script src="libs/cannon.min.js"></script>
+	<body>
+		<canvas id="renderCanvas" touch-action="none"></canvas>
+		<script>
+			const canvas = document.getElementById("renderCanvas"), engine = new BABYLON.Engine(canvas, true);
+		</script>
+		<script src="scene.js"></script>
+		<script src="controls.js"></script>
+		<script>
+			const scene = new BABYLON.Scene(engine);
+		</script>
+		<script src="materials.js"></script>
+		<script>
+			generateScene(20, 20, scene);
+			addCameraInputs(scene.activeCameras[0], 'translate');
+			engine.runRenderLoop(function () {
+				scene.render();
+			});
+			window.addEventListener("resize", function () {
+				engine.resize();
+				scene.activeCameras[1].viewport.width = 250 / canvas.width;
+				scene.activeCameras[1].viewport.height =  250 / canvas.height;
+			});
+		</script>
+	</body>
+</html>
